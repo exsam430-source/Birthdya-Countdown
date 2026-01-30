@@ -1,321 +1,2221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Countdown 🎉</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💍 Walija & Ahmad - Shaadi Mubarak - 23 March 2025 💍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee, #a1c4fd, #c2e9fb);
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: hidden;
-  color: #fff;
-}
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4ba;
+            --gold-dark: #b8960c;
+            --rose: #e8b4b8;
+            --rose-dark: #d4949a;
+            --blush: #fdf2f0;
+            --burgundy: #722f37;
+            --burgundy-dark: #5a1f25;
+            --cream: #fffef9;
+            --dark: #2c2c2c;
+            --white: #ffffff;
+        }
 
-@keyframes gradientBG {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.card {
-  background: rgba(0,0,0,0.3);
-  padding: 40px 30px;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  max-width: 650px;
-  width: 90%;
-  overflow: hidden;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 10px #000;
-  color: #fff;
-  display: inline-block;
-  border-right: 2px solid rgba(255,255,255,0.8);
-  white-space: nowrap;
-  overflow: hidden;
-}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
 
-.names {
-  font-size: 1.4rem;
-  margin-bottom: 30px;
-  font-weight: 700;
-  text-shadow: 2px 2px 6px #000;
-  display: inline-block;
-  border-right: 2px solid rgba(255,255,255,0.8);
-  white-space: nowrap;
-  overflow: hidden;
-}
+        ::-webkit-scrollbar-track {
+            background: var(--blush);
+        }
 
-.emoji {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
-  animation: bounce 1.8s infinite;
-}
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--gold), var(--burgundy));
+            border-radius: 10px;
+            border: 2px solid var(--blush);
+        }
 
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--gold-dark), var(--burgundy-dark));
+        }
 
-.countdown {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-weight: bold;
-}
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #fdf2f0, #fff5f5, #fffef9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100000;
+            transition: opacity 1.5s ease, visibility 1.5s ease;
+        }
 
-.time-box {
-  padding: 20px 25px;
-  border-radius: 25px;
-  min-width: 100px;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #fff;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.2);
-  animation: glow 2.5s ease-in-out infinite alternate;
-  transition: transform 0.3s, background 0.5s;
-}
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
 
-.time-box span {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 700;
-  animation: colorPulse 3s linear infinite;
-}
+        .preloader-content {
+            text-align: center;
+        }
 
-@keyframes colorPulse {
-  0% { color: #ff5f6d; }
-  25% { color: #ffc371; }
-  50% { color: #6a11cb; }
-  75% { color: #2575fc; }
-  100% { color: #ff5f6d; }
-}
+        .preloader-rings {
+            position: relative;
+            width: 180px;
+            height: 120px;
+            margin: 0 auto;
+        }
 
-.time-box:hover {
-  transform: scale(1.1) rotate(-1deg);
-  background: linear-gradient(135deg, #f6d365, #fda085, #ff9a9e);
-}
+        .preloader-ring {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 8px solid var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
 
-@keyframes glow {
-  0% { box-shadow: 0 5px 15px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.2); }
-  100% { box-shadow: 0 5px 25px rgba(0,0,0,0.7), 0 0 25px rgba(255,255,255,0.4); }
-}
+        .preloader-ring:first-child {
+            left: 20px;
+            top: 20px;
+            animation: ringMove1 2s ease-in-out infinite;
+        }
 
-.buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+        .preloader-ring:last-child {
+            right: 20px;
+            top: 20px;
+            animation: ringMove2 2s ease-in-out infinite;
+        }
 
-.buttons button {
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 1rem;
-  color: #fff;
-  background: linear-gradient(45deg, #ff6a00, #ee0979, #ffb347, #ff5f6d);
-  background-size: 300% 300%;
-  animation: buttonGradient 5s ease infinite;
-  transition: transform 0.3s;
-}
+        @keyframes ringMove1 {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(20px) rotate(180deg); }
+        }
 
-.buttons button:hover {
-  transform: scale(1.05);
-}
+        @keyframes ringMove2 {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(-20px) rotate(-180deg); }
+        }
 
-@keyframes buttonGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+        .preloader-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--burgundy);
+            margin-top: 30px;
+        }
 
-/* Floating hearts & sparkles */
-.heart, .sparkle, .confetti {
-  position: absolute;
-  font-size: 20px;
-  animation: floatUp linear infinite;
-  opacity: 0.8;
-}
+        .preloader-and {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 0 10px;
+        }
 
-@keyframes floatUp {
-  0% { transform: translateY(100vh) rotate(0deg); opacity:0.8; }
-  100% { transform: translateY(-50px) rotate(360deg); opacity:0; }
-}
+        .preloader-text {
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-top: 20px;
+            letter-spacing: 5px;
+            animation: fadeInOut 1.5s ease-in-out infinite;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; border-right: 2px solid rgba(255,255,255,0.7); }
-  .names { font-size: 1.2rem; border-right: 2px solid rgba(255,255,255,0.7); }
-  .time-box { font-size: 1rem; min-width: 90px; padding: 15px 18px; }
-  .time-box span { font-size: 1.5rem; }
-  .buttons button { font-size: 0.9rem; padding: 8px 16px; }
-}
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
 
-@media (max-width: 480px) {
-  h1 { font-size: 1.6rem; }
-  .names { font-size: 1rem; }
-  .emoji { font-size: 2rem; }
-  .time-box { font-size: 0.9rem; min-width: 70px; padding: 12px 15px; }
-  .time-box span { font-size: 1.2rem; }
-  .buttons button { font-size: 0.8rem; padding: 6px 12px; }
-}
-</style>
+        .preloader-hearts {
+            margin-top: 20px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .preloader-hearts span {
+            animation: heartPop 1s ease-in-out infinite;
+        }
+
+        .preloader-hearts span:nth-child(1) { animation-delay: 0s; }
+        .preloader-hearts span:nth-child(2) { animation-delay: 0.2s; }
+        .preloader-hearts span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes heartPop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            animation: petalFall linear infinite;
+            opacity: 0.9;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.9; }
+            100% {
+                transform: translateY(100vh) rotate(360deg) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--gold), 0 0 30px var(--gold), 0 0 45px var(--gold);
+            animation: sparkleFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes sparkleFloat {
+            0%, 100% {
+                transform: translateY(0) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-180px) scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: 
+                radial-gradient(ellipse at 15% 25%, rgba(232, 180, 184, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 75%, rgba(212, 175, 55, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(114, 47, 55, 0.15) 0%, transparent 70%),
+                linear-gradient(180deg, #fdf2f0 0%, #fff5f5 25%, #fffef9 50%, #fff5f5 75%, #fdf2f0 100%);
+            padding: 50px 20px;
+            overflow: hidden;
+        }
+
+        /* Top Decoration */
+        .top-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, 
+                var(--gold), var(--rose), var(--burgundy), 
+                var(--rose), var(--gold), var(--rose), 
+                var(--burgundy), var(--rose), var(--gold));
+            background-size: 200% 100%;
+            animation: borderMove 6s linear infinite;
+        }
+
+        @keyframes borderMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Decorative Frame */
+        .decorative-frame {
+            position: absolute;
+            width: 94%;
+            max-width: 1000px;
+            height: 94%;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 40px;
+            pointer-events: none;
+        }
+
+        .frame-corner {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--gold);
+        }
+
+        .frame-corner.top-left {
+            top: -4px;
+            left: -4px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 40px 0 0 0;
+        }
+
+        .frame-corner.top-right {
+            top: -4px;
+            right: -4px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 40px 0 0;
+        }
+
+        .frame-corner.bottom-left {
+            bottom: -4px;
+            left: -4px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 40px;
+        }
+
+        .frame-corner.bottom-right {
+            bottom: -4px;
+            right: -4px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 40px 0;
+        }
+
+        .frame-ornament {
+            position: absolute;
+            font-size: 25px;
+            color: var(--gold);
+        }
+
+        .frame-ornament.top {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .frame-ornament.bottom {
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        /* Bismillah Section */
+        .bismillah-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            direction: rtl;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bismillah-translation {
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Animated Rings */
+        .rings-container {
+            position: relative;
+            width: 250px;
+            height: 160px;
+            margin-bottom: 30px;
+        }
+
+        .wedding-ring {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 12px solid;
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .ring-left {
+            left: 30px;
+            border-color: var(--gold);
+            box-shadow: 
+                0 0 40px rgba(212, 175, 55, 0.7),
+                inset 0 0 40px rgba(212, 175, 55, 0.4),
+                0 0 80px rgba(212, 175, 55, 0.3);
+            animation: ringPulse 2.5s ease-in-out infinite;
+        }
+
+        .ring-right {
+            right: 30px;
+            border-color: #c9a227;
+            box-shadow: 
+                0 0 40px rgba(201, 176, 55, 0.7),
+                inset 0 0 40px rgba(201, 176, 55, 0.4),
+                0 0 80px rgba(201, 176, 55, 0.3);
+            animation: ringPulse 2.5s ease-in-out infinite 0.4s;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.7), inset 0 0 40px rgba(212, 175, 55, 0.4);
+            }
+            50% { 
+                transform: scale(1.08);
+                box-shadow: 0 0 60px rgba(212, 175, 55, 0.9), inset 0 0 50px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .ring-diamond {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+            animation: diamondSparkle 2.5s ease-in-out infinite;
+        }
+
+        @keyframes diamondSparkle {
+            0%, 100% { 
+                transform: translateX(-50%) scale(1) rotate(0deg);
+                filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+            }
+            50% { 
+                transform: translateX(-50%) scale(1.4) rotate(20deg);
+                filter: drop-shadow(0 0 35px rgba(255, 255, 255, 1)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.8));
+            }
+        }
+
+        .ring-shine {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: radial-gradient(circle, white 0%, transparent 70%);
+            border-radius: 50%;
+            animation: shineMove 4s ease-in-out infinite;
+        }
+
+        .ring-shine.shine-1 {
+            top: 35px;
+            left: 50px;
+        }
+
+        .ring-shine.shine-2 {
+            top: 35px;
+            right: 50px;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes shineMove {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Main Title */
+        .wedding-title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .title-decoration {
+            font-size: 55px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .title-decoration span {
+            animation: decorFloat 3s ease-in-out infinite;
+        }
+
+        .title-decoration span:nth-child(1) { animation-delay: 0s; }
+        .title-decoration span:nth-child(2) { animation-delay: 0.15s; }
+        .title-decoration span:nth-child(3) { animation-delay: 0.3s; }
+        .title-decoration span:nth-child(4) { animation-delay: 0.45s; }
+        .title-decoration span:nth-child(5) { animation-delay: 0.6s; }
+
+        @keyframes decorFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(12deg); }
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6rem;
+            color: var(--burgundy);
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+            line-height: 1.2;
+            animation: titleReveal 2.5s ease forwards;
+        }
+
+        @keyframes titleReveal {
+            0% { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.7);
+                letter-spacing: 30px;
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1);
+                letter-spacing: normal;
+            }
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--gold);
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            margin-top: 20px;
+            animation: subtitleReveal 2s ease forwards 0.6s;
+            opacity: 0;
+        }
+
+        @keyframes subtitleReveal {
+            0% { opacity: 0; letter-spacing: 40px; }
+            100% { opacity: 1; letter-spacing: 12px; }
+        }
+
+        /* Couple Names Section */
+        .couple-section {
+            text-align: center;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .couple-intro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #888;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .couple-names {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .bride-name, .groom-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .bride-name {
+            background: linear-gradient(135deg, var(--burgundy), #a04050, var(--burgundy));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: nameShimmer 4s linear infinite;
+        }
+
+        .groom-name {
+            background: linear-gradient(135deg, #2c5f4a, #3d8b6d, #2c5f4a);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: nameShimmer 4s linear infinite 0.5s;
+        }
+
+        @keyframes nameShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        .couple-and {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .couple-and::before,
+        .couple-and::after {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 25px;
+        }
+
+        .couple-and::before {
+            left: -35px;
+        }
+
+        .couple-and::after {
+            right: -35px;
+        }
+
+        .couple-flowers {
+            margin-top: 25px;
+            font-size: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .couple-flowers span {
+            animation: flowerBounce 2s ease-in-out infinite;
+        }
+
+        .couple-flowers span:nth-child(odd) {
+            animation-delay: 0.3s;
+        }
+
+        @keyframes flowerBounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+
+        /* Sister Badge */
+        .sister-section {
+            margin-top: 30px;
+        }
+
+        .for-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #888;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .sister-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--rose), #f8d7da, var(--rose));
+            color: var(--burgundy);
+            padding: 15px 40px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 15px 40px rgba(232, 180, 184, 0.5);
+            border: 4px solid var(--gold);
+            animation: badgePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 15px 40px rgba(232, 180, 184, 0.5); }
+            50% { transform: scale(1.03); box-shadow: 0 20px 50px rgba(232, 180, 184, 0.7); }
+        }
+
+        /* Wedding Date Card */
+        .date-section {
+            text-align: center;
+            margin: 70px auto;
+            padding: 60px 50px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(253,242,240,0.98));
+            border-radius: 40px;
+            box-shadow: 
+                0 35px 100px rgba(0,0,0,0.12),
+                0 0 0 4px var(--gold-light),
+                inset 0 0 60px rgba(232, 180, 184, 0.15);
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            overflow: hidden;
+        }
+
+        .date-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--rose), var(--burgundy), var(--rose), var(--gold));
+        }
+
+        .date-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--rose), var(--burgundy), var(--rose), var(--gold));
+        }
+
+        .date-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            animation: churchBounce 3s ease-in-out infinite;
+        }
+
+        @keyframes churchBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-18px) scale(1.15); }
+        }
+
+        .save-the-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--burgundy);
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .wedding-day {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-top: 15px;
+        }
+
+        .wedding-year {
+            font-size: 1.8rem;
+            color: var(--burgundy);
+            font-weight: 600;
+            margin-top: 12px;
+            letter-spacing: 8px;
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            margin: 80px auto;
+            text-align: center;
+            max-width: 800px;
+            width: 95%;
+        }
+
+        .countdown-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2rem;
+            color: var(--burgundy);
+            margin-bottom: 45px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .countdown-box {
+            background: linear-gradient(145deg, #fff, #fdf2f0);
+            border-radius: 30px;
+            padding: 35px 20px;
+            box-shadow: 
+                0 25px 60px rgba(0,0,0,0.1),
+                0 0 0 4px var(--gold-light),
+                inset 0 -8px 25px rgba(232, 180, 184, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .countdown-box:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 
+                0 35px 80px rgba(0,0,0,0.15),
+                0 0 0 4px var(--gold),
+                inset 0 -8px 25px rgba(232, 180, 184, 0.3);
+        }
+
+        .countdown-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold));
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--burgundy);
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .countdown-emoji {
+            position: absolute;
+            bottom: 12px;
+            right: 15px;
+            font-size: 22px;
+            opacity: 0.6;
+        }
+
+        /* Message Section */
+        .message-section {
+            max-width: 950px;
+            width: 95%;
+            margin: 100px auto;
+            padding: 70px 60px;
+            background: linear-gradient(145deg, #fff, #fffef9);
+            border-radius: 50px;
+            box-shadow: 
+                0 50px 120px rgba(0,0,0,0.1),
+                inset 0 0 120px rgba(232, 180, 184, 0.05);
+            position: relative;
+            border: 5px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .message-section::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, var(--gold), var(--rose), var(--gold), var(--rose), var(--gold));
+            background-size: 400% 400%;
+            border-radius: 52px;
+            z-index: -1;
+            animation: borderGlow 6s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        .message-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .message-icon {
+            font-size: 90px;
+            animation: heartBeat 1.8s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.2); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+        }
+
+        .message-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: var(--burgundy);
+            margin-top: 25px;
+        }
+
+        .message-subtitle {
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-top: 15px;
+            letter-spacing: 4px;
+        }
+
+        /* Wish Cards */
+        .wish-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #fdf2f0, #fff5f5, #fffef9);
+            border-radius: 30px;
+            padding: 40px 35px;
+            border-left: 7px solid var(--gold);
+            position: relative;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateX(-60px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .wish-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .wish-card:nth-child(odd) {
+            border-left-color: var(--rose);
+        }
+
+        .wish-card:nth-child(3n) {
+            border-left-color: var(--burgundy);
+        }
+
+        .wish-card:nth-child(4n) {
+            border-left-color: #3d8b6d;
+        }
+
+        .wish-card:hover {
+            transform: translateX(20px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.2);
+        }
+
+        .wish-card::before {
+            content: attr(data-icon);
+            position: absolute;
+            top: -25px;
+            left: 30px;
+            font-size: 45px;
+            background: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .wish-number {
+            position: absolute;
+            top: 18px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--burgundy);
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .wish-text {
+            font-size: 1.25rem;
+            line-height: 2.3;
+            color: var(--dark);
+            padding-top: 20px;
+        }
+
+        .wish-text .highlight {
+            background: linear-gradient(135deg, var(--gold-light), rgba(212, 175, 55, 0.25));
+            padding: 5px 15px;
+            border-radius: 10px;
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        .wish-text .love {
+            color: var(--burgundy);
+            font-weight: 700;
+        }
+
+        .wish-text .blessing {
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        .wish-text .emotional {
+            color: #c0392b;
+            font-weight: 600;
+        }
+
+        .wish-text .groom-highlight {
+            color: #2c5f4a;
+            font-weight: 600;
+        }
+
+        .wish-text .bride-highlight {
+            color: var(--burgundy);
+            font-weight: 600;
+        }
+
+        /* Special Brother Section */
+        .brother-section {
+            background: linear-gradient(135deg, #f8f4e8, #fff9e6, #f8f4e8);
+            border-radius: 40px;
+            padding: 60px 50px;
+            margin: 80px auto;
+            max-width: 850px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            border: 4px solid var(--gold);
+            box-shadow: 0 40px 100px rgba(212, 175, 55, 0.25);
+        }
+
+        .brother-section::before {
+            content: '👦❤️👰';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 55px;
+            background: white;
+            padding: 12px 30px;
+            border-radius: 60px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .brother-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.2rem;
+            color: var(--burgundy);
+            margin-top: 35px;
+            margin-bottom: 30px;
+        }
+
+        .brother-message {
+            font-size: 1.25rem;
+            line-height: 2.4;
+            color: var(--dark);
+        }
+
+        .brother-message strong {
+            color: var(--burgundy);
+        }
+
+        .brother-memory {
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid var(--rose);
+        }
+
+        .brother-memory-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        /* Dua Section */
+        .dua-section {
+            background: linear-gradient(135deg, var(--burgundy), #5a1f25, #3d1015);
+            border-radius: 45px;
+            padding: 70px 60px;
+            margin: 100px auto;
+            max-width: 900px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 50px 120px rgba(114, 47, 55, 0.5);
+        }
+
+        .dua-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-13.807 11.193-25 25-25s25 11.193 25 25-11.193 25-25 25c0 13.807-11.193 25-25 25s-25-11.193-25-25 11.193-25 25-25zM0 0c0-13.807 11.193-25 25-25s25 11.193 25 25-11.193 25-25 25c0 13.807-11.193 25-25 25S-25 63.807-25 50s11.193-25 25-25z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .dua-decoration {
+            font-size: 70px;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            animation: duaFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes duaFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .dua-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dua-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.8rem;
+            color: var(--gold-light);
+            margin: 35px 0;
+            position: relative;
+            z-index: 1;
+            line-height: 2;
+            direction: rtl;
+        }
+
+        .dua-translation {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--cream);
+            line-height: 2.2;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            margin: 30px 0;
+        }
+
+        .dua-personal {
+            font-size: 1.3rem;
+            color: var(--rose);
+            line-height: 2.3;
+            position: relative;
+            z-index: 1;
+            margin-top: 35px;
+            padding-top: 35px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .dua-personal strong {
+            color: var(--gold);
+        }
+
+        /* From Section */
+        .from-section {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            background: linear-gradient(180deg, var(--cream), #fdf2f0, var(--cream));
+        }
+
+        .flower-decoration {
+            font-size: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .flower-decoration span {
+            animation: flowerWave 2.5s ease-in-out infinite;
+        }
+
+        .flower-decoration span:nth-child(1) { animation-delay: 0s; }
+        .flower-decoration span:nth-child(2) { animation-delay: 0.1s; }
+        .flower-decoration span:nth-child(3) { animation-delay: 0.2s; }
+        .flower-decoration span:nth-child(4) { animation-delay: 0.3s; }
+        .flower-decoration span:nth-child(5) { animation-delay: 0.4s; }
+        .flower-decoration span:nth-child(6) { animation-delay: 0.5s; }
+        .flower-decoration span:nth-child(7) { animation-delay: 0.6s; }
+        .flower-decoration span:nth-child(8) { animation-delay: 0.7s; }
+        .flower-decoration span:nth-child(9) { animation-delay: 0.8s; }
+
+        @keyframes flowerWave {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(18deg); }
+        }
+
+        .from-label {
+            font-size: 1.2rem;
+            color: #888;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+        }
+
+        .from-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            background: linear-gradient(135deg, var(--burgundy), var(--gold), var(--burgundy));
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: nameShimmer 4s linear infinite;
+            margin: 25px 0;
+        }
+
+        .from-relation {
+            font-size: 1.5rem;
+            color: var(--rose-dark);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .from-message {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .from-emoji {
+            font-size: 70px;
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .from-emoji span {
+            animation: emojiDance 2.5s ease-in-out infinite;
+        }
+
+        .from-emoji span:nth-child(1) { animation-delay: 0s; }
+        .from-emoji span:nth-child(2) { animation-delay: 0.4s; }
+        .from-emoji span:nth-child(3) { animation-delay: 0.8s; }
+
+        @keyframes emojiDance {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(-12deg); }
+            75% { transform: translateY(-15px) rotate(12deg); }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 70px 20px;
+            background: linear-gradient(135deg, var(--burgundy), #4a1a1f, #3d1015);
+            color: var(--cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold), var(--rose), var(--gold));
+        }
+
+        .footer-couple {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-rings {
+            font-size: 55px;
+            margin-bottom: 25px;
+            animation: ringsFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes ringsFloat {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .footer-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-date {
+            color: var(--rose);
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+        }
+
+        .footer-hearts {
+            margin-top: 30px;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .footer-hearts span {
+            animation: footerHeart 1.2s ease-in-out infinite;
+        }
+
+        .footer-hearts span:nth-child(odd) { animation-delay: 0.6s; }
+
+        @keyframes footerHeart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+        }
+
+        .footer-made {
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Fixed Buttons */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            z-index: 1000;
+        }
+
+        .fixed-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fixed-btn:hover {
+            transform: scale(1.15) translateY(-8px);
+        }
+
+        .music-btn {
+            background: linear-gradient(135deg, var(--gold), #c9a227);
+        }
+
+        .music-btn.playing {
+            animation: musicPulse 1.2s ease-in-out infinite;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4); }
+            50% { box-shadow: 0 12px 60px rgba(212, 175, 55, 0.9), 0 0 100px rgba(212, 175, 55, 0.5); }
+        }
+
+        .scroll-btn {
+            background: var(--burgundy);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .scroll-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .share-btn {
+            background: linear-gradient(135deg, var(--rose), #d4a0a5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .couple-names {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .couple-and::before,
+            .couple-and::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                letter-spacing: 6px;
+            }
+
+            .bride-name, .groom-name {
+                font-size: 3.5rem;
+            }
+
+            .couple-and {
+                font-size: 2.5rem;
+            }
+
+            .wedding-date {
+                font-size: 3rem;
+            }
+
+            .countdown-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .countdown-number {
+                font-size: 3rem;
+            }
+
+            .countdown-title {
+                font-size: 2.5rem;
+            }
+
+            .message-section {
+                padding: 50px 35px;
+            }
+
+            .message-title {
+                font-size: 3rem;
+            }
+
+            .wish-card {
+                padding: 35px 28px;
+            }
+
+            .wish-text {
+                font-size: 1.1rem;
+            }
+
+            .dua-section {
+                padding: 55px 35px;
+            }
+
+            .dua-arabic {
+                font-size: 2rem;
+            }
+
+            .dua-title {
+                font-size: 2.8rem;
+            }
+
+            .from-name {
+                font-size: 4rem;
+            }
+
+            .rings-container {
+                width: 200px;
+                height: 130px;
+            }
+
+            .wedding-ring {
+                width: 80px;
+                height: 80px;
+                border-width: 10px;
+            }
+
+            .ring-left {
+                left: 25px;
+            }
+
+            .ring-right {
+                right: 25px;
+            }
+
+            .brother-section {
+                padding: 55px 35px;
+            }
+
+            .brother-title {
+                font-size: 2.5rem;
+            }
+
+            .bismillah {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+                letter-spacing: 4px;
+            }
+
+            .bride-name, .groom-name {
+                font-size: 2.8rem;
+            }
+
+            .couple-and {
+                font-size: 2rem;
+            }
+
+            .sister-badge {
+                font-size: 1rem;
+                padding: 12px 28px;
+            }
+
+            .date-section {
+                padding: 45px 28px;
+            }
+
+            .wedding-date {
+                font-size: 2.2rem;
+            }
+
+            .wedding-day {
+                font-size: 1.8rem;
+            }
+
+            .countdown-box {
+                padding: 25px 12px;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+                letter-spacing: 2px;
+            }
+
+            .countdown-title {
+                font-size: 2rem;
+            }
+
+            .message-section {
+                padding: 45px 22px;
+            }
+
+            .message-title {
+                font-size: 2.5rem;
+            }
+
+            .message-icon {
+                font-size: 65px;
+            }
+
+            .wish-card {
+                padding: 30px 22px;
+            }
+
+            .wish-text {
+                font-size: 1.05rem;
+                line-height: 2.1;
+            }
+
+            .wish-card::before {
+                font-size: 35px;
+            }
+
+            .dua-section {
+                padding: 45px 22px;
+            }
+
+            .dua-title {
+                font-size: 2.2rem;
+            }
+
+            .dua-arabic {
+                font-size: 1.6rem;
+            }
+
+            .dua-translation {
+                font-size: 1.15rem;
+            }
+
+            .from-name {
+                font-size: 3rem;
+            }
+
+            .footer-text {
+                font-size: 2rem;
+            }
+
+            .footer-couple {
+                font-size: 2.5rem;
+            }
+
+            .flower-decoration {
+                font-size: 35px;
+            }
+
+            .title-decoration {
+                font-size: 40px;
+                gap: 12px;
+            }
+
+            .fixed-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .fixed-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+
+            .rings-container {
+                width: 160px;
+                height: 100px;
+            }
+
+            .wedding-ring {
+                width: 60px;
+                height: 60px;
+                border-width: 7px;
+                top: 25px;
+            }
+
+            .ring-left {
+                left: 18px;
+            }
+
+            .ring-right {
+                right: 18px;
+            }
+
+            .ring-diamond {
+                font-size: 28px;
+            }
+
+            .brother-section {
+                padding: 45px 22px;
+            }
+
+            .brother-section::before {
+                font-size: 40px;
+                top: -28px;
+            }
+
+            .brother-title {
+                font-size: 2rem;
+                margin-top: 25px;
+            }
+
+            .brother-message {
+                font-size: 1.05rem;
+            }
+
+            .preloader-names {
+                font-size: 2.2rem;
+            }
+
+            .bismillah {
+                font-size: 1.6rem;
+            }
+
+            .couple-flowers {
+                font-size: 28px;
+            }
+        }
+
+        /* Animation on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1.2s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-rings">
+                <div class="preloader-ring"></div>
+                <div class="preloader-ring"></div>
+            </div>
+            <div class="preloader-names">
+                Walija <span class="preloader-and">&</span> Ahmad
+            </div>
+            <div class="preloader-text">✨ Loading Wedding Wishes ✨</div>
+            <div class="preloader-hearts">
+                <span>💕</span>
+                <span>💍</span>
+                <span>💕</span>
+            </div>
+        </div>
+    </div>
 
-<div class="card">
-  <div class="emoji">🎉🎂🎈💖✨</div>
-  <h1 id="title"></h1>
-  <div class="names" id="names"></div>
+    <!-- Floating Elements Container -->
+    <div class="floating-elements" id="floatingElements"></div>
 
-  <div class="countdown">
-    <div class="time-box" id="daysBox"><span id="days">0</span> Days</div>
-    <div class="time-box" id="hoursBox"><span id="hours">0</span> Hours</div>
-    <div class="time-box" id="minutesBox"><span id="minutes">0</span> Minutes</div>
-    <div class="time-box" id="secondsBox"><span id="seconds">0</span> Seconds</div>
-  </div>
+    <!-- Fixed Buttons -->
+    <div class="fixed-buttons">
+        <button class="fixed-btn music-btn" id="musicBtn" onclick="toggleMusic()" title="Toggle Music">🎵</button>
+        <button class="fixed-btn share-btn" onclick="shareWishes()" title="Share">📤</button>
+        <button class="fixed-btn scroll-btn" id="scrollBtn" onclick="scrollToTop()" title="Scroll to Top">⬆️</button>
+    </div>
 
-  <div class="buttons">
-    <button onclick="setUnit('days')">Days</button>
-    <button onclick="setUnit('hours')">Hours</button>
-    <button onclick="setUnit('minutes')">Minutes</button>
-    <button onclick="setUnit('seconds')">Seconds</button>
-  </div>
-</div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="top-decoration"></div>
+            
+            <div class="decorative-frame">
+                <div class="frame-corner top-left"></div>
+                <div class="frame-corner top-right"></div>
+                <div class="frame-corner bottom-left"></div>
+                <div class="frame-corner bottom-right"></div>
+                <span class="frame-ornament top">❧</span>
+                <span class="frame-ornament bottom">❧</span>
+            </div>
 
-<script>
-// Countdown code (same as before)
-const birthday = new Date("March 22, 2026 00:00:00").getTime();
-let currentUnit = 'days';
+            <!-- Bismillah -->
+            <div class="bismillah-section">
+                <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+                <p class="bismillah-translation">In the name of Allah, the Most Gracious, the Most Merciful</p>
+            </div>
 
-function addCommas(num){ return num.toLocaleString(); }
+            <!-- Wedding Rings -->
+            <div class="rings-container">
+                <div class="wedding-ring ring-left"></div>
+                <div class="wedding-ring ring-right"></div>
+                <div class="ring-diamond">💎</div>
+                <div class="ring-shine shine-1"></div>
+                <div class="ring-shine shine-2"></div>
+            </div>
 
-function updateCountdown(){
-  const now = new Date().getTime();
-  const diff = birthday - now;
+            <!-- Title -->
+            <div class="wedding-title">
+                <div class="title-decoration">
+                    <span>💐</span>
+                    <span>✨</span>
+                    <span>🕌</span>
+                    <span>✨</span>
+                    <span>💐</span>
+                </div>
+                <h1 class="main-title">Shaadi Mubarak</h1>
+                <p class="subtitle">A Beautiful New Beginning</p>
+            </div>
 
-  const totalSeconds = Math.floor(diff/1000);
-  const totalMinutes = Math.floor(totalSeconds/60);
-  const totalHours = Math.floor(totalSeconds/3600);
-  const totalDays = Math.floor(totalSeconds/86400);
+            <!-- Couple Names -->
+            <div class="couple-section">
+                <p class="couple-intro">~ The Wedding Of ~</p>
+                <div class="couple-names">
+                    <h2 class="bride-name">Walija</h2>
+                    <span class="couple-and">&</span>
+                    <h2 class="groom-name">Ahmad</h2>
+                </div>
+                <div class="couple-flowers">
+                    <span>🌸</span>
+                    <span>💕</span>
+                    <span>🌹</span>
+                    <span>💕</span>
+                    <span>🌸</span>
+                </div>
+            </div>
 
-  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-  const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-  const seconds = Math.floor((diff % (1000*60)) / 1000);
+            <!-- Sister Badge -->
+            <div class="sister-section">
+                <p class="for-text">~ Special Wishes For ~</p>
+                <div class="sister-badge">👑 Meri Dayan Behen Walija 👑</div>
+            </div>
 
-  document.getElementById('daysBox').style.display = 'none';
-  document.getElementById('hoursBox').style.display = 'none';
-  document.getElementById('minutesBox').style.display = 'none';
-  document.getElementById('secondsBox').style.display = 'none';
+            <!-- Wedding Date -->
+            <div class="date-section animate-on-scroll">
+                <div class="date-icon">🕌</div>
+                <p class="save-the-date">✨ Save The Date ✨</p>
+                <h3 class="wedding-date">23rd March</h3>
+                <p class="wedding-day">Sunday</p>
+                <p class="wedding-year">~ 2025 ~</p>
+            </div>
 
-  if(currentUnit === 'days'){
-    document.getElementById('daysBox').style.display = 'block';
-    document.getElementById('hoursBox').style.display = 'block';
-    document.getElementById('minutesBox').style.display = 'block';
-    document.getElementById('secondsBox').style.display = 'block';
-    document.getElementById('days').textContent = addCommas(totalDays);
-    document.getElementById('hours').textContent = addCommas(hours);
-    document.getElementById('minutes').textContent = addCommas(minutes);
-    document.getElementById('seconds').textContent = addCommas(seconds);
-  }
-  else if(currentUnit === 'hours'){
-    document.getElementById('hoursBox').style.display = 'block';
-    document.getElementById('minutesBox').style.display = 'block';
-    document.getElementById('secondsBox').style.display = 'block';
-    document.getElementById('hours').textContent = addCommas(totalHours);
-    document.getElementById('minutes').textContent = addCommas(minutes);
-    document.getElementById('seconds').textContent = addCommas(seconds);
-  }
-  else if(currentUnit === 'minutes'){
-    document.getElementById('minutesBox').style.display = 'block';
-    document.getElementById('secondsBox').style.display = 'block';
-    document.getElementById('minutes').textContent = addCommas(totalMinutes);
-    document.getElementById('seconds').textContent = addCommas(seconds);
-  }
-  else if(currentUnit === 'seconds'){
-    document.getElementById('secondsBox').style.display = 'block';
-    document.getElementById('seconds').textContent = addCommas(totalSeconds);
-  }
-}
+            <!-- Countdown -->
+            <div class="countdown-section animate-on-scroll">
+                <h3 class="countdown-title">⏳ Counting Down To Walija's Big Day 💕</h3>
+                <div class="countdown-container">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                        <span class="countdown-emoji">📅</span>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                        <span class="countdown-emoji">⏰</span>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                        <span class="countdown-emoji">⏱️</span>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                        <span class="countdown-emoji">💫</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-setInterval(updateCountdown,1000);
-updateCountdown();
+        <!-- Message Section -->
+        <section class="message-section animate-on-scroll">
+            <div class="message-header">
+                <div class="message-icon">💝</div>
+                <h2 class="message-title">From My Heart To Yours</h2>
+                <p class="message-subtitle">~ Special wishes from your brother Abdullah ~</p>
+            </div>
 
-function setUnit(unit){
-  currentUnit = unit;
-  updateCountdown();
-}
+            <div class="wish-cards">
+                <div class="wish-card" data-icon="💌">
+                    <span class="wish-number">1</span>
+                    <p class="wish-text">
+                        <span class="highlight">Meri Pyaari Walija,</span><br><br>
+                        Teri shaadi ho rahi hai aur main bata nahi sakta kitni <span class="love">khushi</span> ho rahi hai mujhy! Tu duniya ki <span class="blessing">sabse best behen</span> hai! 💕
+                    </p>
+                </div>
 
-// Typing animation
-const titleText = "Birthday Countdown! 🎉";
-const namesText = "Madam G 💖 Kashaf 💖 Bacha 💖 Tiddi";
+                <div class="wish-card" data-icon="🌟">
+                    <span class="wish-number">2</span>
+                    <p class="wish-text">
+                        Jab se suna hai ke teri aur <span class="groom-highlight">Ahmad Bhai</span> ki <span class="highlight">shaadi fix ho gayi</span>, tabh se dil mein sirf ek hi dua hai - <span class="blessing">Allah tum dono ko bohot bohot khush rakhe!</span> 🤲✨
+                    </p>
+                </div>
 
-function typeText(elementId, text, delay=100){
-  let i=0;
-  const el = document.getElementById(elementId);
-  el.textContent = "";
-  const typing = setInterval(()=>{
-    el.textContent += text[i];
-    i++;
-    if(i>=text.length){ clearInterval(typing); }
-  }, delay);
-}
+                <div class="wish-card" data-icon="👰">
+                    <span class="wish-number">3</span>
+                    <p class="wish-text">
+                        <span class="bride-highlight">Walija</span>, tu <span class="love">duniya ki sabse khoobsurat dulhan</span> banegi! 23 March ko sab log dekhte reh jayenge! Teri smile se poora <span class="blessing">ghar roshan</span> ho jayega! ✨💫
+                    </p>
+                </div>
 
-typeText('title', titleText, 120);
-setTimeout(()=>{ typeText('names', namesText, 100); }, titleText.length*120 + 500);
+                <div class="wish-card" data-icon="💑">
+                    <span class="wish-number">4</span>
+                    <p class="wish-text">
+                        <span class="highlight">Tum Dono</span> ki jodi hamesha salamat rahe! Allah tum dono ko <span class="blessing">pyaar, sukoon, aur barkat</span> se nawaze! Tumhara ghar khushiyon se bhara rahe! 🏡💕
+                    </p>
+                </div>
 
-// Floating hearts, sparkles & confetti
-const emojis = ["💖","🎈","✨","🎉","🎊","🥳"];
-for(let i=0;i<50;i++){
-  const heart = document.createElement('div');
-  heart.className='heart';
-  heart.style.left = Math.random()*100+'vw';
-  heart.style.fontSize = 15 + Math.random()*25 + 'px';
-  heart.style.animationDuration = 4 + Math.random()*5 + 's';
-  heart.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-  document.body.appendChild(heart);
-}
+                <div class="wish-card" data-icon="🥺">
+                    <span class="wish-number">5</span>
+                    <p class="wish-text">
+                        Walija, teri <span class="emotional">bohot yaad aayegi</span>... Tere bina ghar soona lagega! Mera toh <span class="love">rona aa jayega</span>! Par main jaanta hoon tu <span class="groom-highlight">Ahmad Bhai</span> ke saath bohot khush rahegi! 😢💕
+                    </p>
+                </div>
 
-for(let i=0;i<50;i++){
-  const sparkle = document.createElement('div');
-  sparkle.className='sparkle';
-  sparkle.style.left = Math.random()*100+'vw';
-  sparkle.style.width = sparkle.style.height = 3 + Math.random()*6 + 'px';
-  sparkle.style.background = '#fff';
-  sparkle.style.animationDuration = 2 + Math.random()*3 + 's';
-  document.body.appendChild(sparkle);
-}
+                <div class="wish-card" data-icon="🌹">
+                    <span class="wish-number">6</span>
+                    <p class="wish-text">
+                        Bachpan se tune mujhy <span class="highlight"> support kiya,Meri pehli dushamn aur dost bani </span>... Meri har galti maaf ki! Tu sirf behen nahi, <span class="love">meri best friend bhi hai!</span> Thank you Walija! 🙏
+                    </p>
+                </div>
 
-for(let i=0;i<30;i++){
-  const confetti = document.createElement('div');
-  confetti.className='confetti';
-  confetti.style.left = Math.random()*100+'vw';
-  confetti.style.fontSize = 18 + Math.random()*20 + 'px';
-  confetti.style.animationDuration = 3 + Math.random()*4 + 's';
-  confetti.textContent = "🎉";
-  document.body.appendChild(confetti);
-}
-</script>
+                <div class="wish-card" data-icon="✨">
+                    <span class="wish-number">7</span>
+                    <p class="wish-text">
+                        Is naye safar mein <span class="blessing">Allah tere saath rahe!</span> Har mushkil aasan ho! Har khwab poora ho! Aur <span class="love">hamesha muskurati reh</span> meri pyaari Walija! 💫🌈
+                    </p>
+                </div>
+
+                <div class="wish-card" data-icon="💪">
+                    <span class="wish-number">8</span>
+                    <p class="wish-text">
+                        Walija yaad rakhna - <span class="highlight">tera bhai Abdullah hamesha tere saath hai!</span> Koi bhi problem ho, koi bhi pareshani ho - main <span class="love">ek call door</span> hoon! Always and forever! 📞❤️
+                    </p>
+                </div>
+
+                <div class="wish-card" data-icon="🤝">
+                    <span class="wish-number">9</span>
+                    <p class="wish-text">
+                        <span class="groom-highlight">Ahmad Bhai</span> ko bhi mubarak ho! 🎉 Unhe <span class="highlight">duniya ki sabse achi biwi</span> mil rahi hai! Main jaanta hoon wo <span class="bride-highlight">Walija</span> ka bohot khayal rakhenge! Welcome to the family! 🤗
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Brother Section -->
+        <div class="brother-section animate-on-scroll">
+            <h3 class="brother-title">💕 Abdullah Ki Dil Ki Baat 💕</h3>
+            <p class="brother-message">
+                Walija, tu mere liye sirf behen nahi hai... Tu meri <strong>sab se bari dushman</strong> hai! 🦸‍♀️<br><br>
+                muma papa sy dant parwai 😅<br>
+                jan bujh kar mery zakhmo par namak chidakti thi ! 😊<br>
+                parphir bhi you were the most precious person to me ! 🤗<br><br>
+                Ab tu ja rahi hai <strong>Ahmad Bhai</strong> ke saath apne naye ghar... <strong>Dil toot raha hai</strong> par teri khushi mein hi meri khushi hai! 💔➡️💕
+            </p>
+            
+            <div class="brother-memory">
+                <h4 class="brother-memory-title">✨ Hamesha Yaad Rahega ✨</h4>
+                <p class="brother-message">
+                    Bachpan ki wo saari yaadein... Saath mein khelna, ladhna, phir manana... 🥺<br>
+                    Tu hamesha mere liye special rahegi! <strong>I LOVE YOU Dayan!</strong> ❤️
+                </p>
+            </div>
+        </div>
+
+        <!-- Dua Section -->
+        <section class="dua-section animate-on-scroll">
+            <div class="dua-decoration">🤲✨🕌✨🤲</div>
+            <h3 class="dua-title">Special Dua For Walija & Ahmad</h3>
+            
+            <p class="dua-arabic">
+                بَارَكَ اللّهُ لَكَ وَبَارَكَ عَلَيْكَ<br>
+                وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+            </p>
+            
+            <p class="dua-translation">
+                "May Allah bless you both and shower His blessings upon you,<br>
+                and may He unite you both in goodness."
+            </p>
+            
+            <p class="dua-personal">
+                🤲 Allah <strong>Tum Dono</strong> ko hamesha khush rakhe!<br>
+                🤲 Tum dono ki zindagi mein sirf pyaar aur sukoon ho!<br>
+                🤲 Tumhara ghar jannat jaisa ho!<br>
+                🤲 Tum dono ki har dua qubool ho!<br>
+                <strong>Ameen Ya Rabbul Alameen! 🤲</strong>
+            </p>
+        </section>
+
+        <!-- From Section -->
+        <section class="from-section animate-on-scroll">
+            <div class="flower-decoration">
+                <span>🌸</span>
+                <span>🌺</span>
+                <span>🌷</span>
+                <span>💐</span>
+                <span>🌹</span>
+                <span>💐</span>
+                <span>🌷</span>
+                <span>🌺</span>
+                <span>🌸</span>
+            </div>
+            <p class="from-label">With All My Love & Prayers</p>
+            <h3 class="from-name">Abdullah</h3>
+            <p class="from-relation">🧑 Tera Pyaara Bhai 💕</p>
+            <p class="from-message">"Walija, tu hamesha meri favourite rahegi!"</p>
+            <div class="from-emoji">
+                <span>🤗</span>
+                <span>💕</span>
+                <span>👨‍👩‍👧</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-couple">Walija ❤️ Ahmad</div>
+            <div class="footer-rings">💍✨💍</div>
+            <p class="footer-text">Shaadi Mubarak!</p>
+            <p class="footer-date">📅 23rd March 2025 ~ A Day We'll Never Forget 📅</p>
+            <div class="footer-hearts">
+                <span>💕</span>
+                <span>💗</span>
+                <span>💖</span>
+                <span>💝</span>
+                <span>💕</span>
+            </div>
+            <p class="footer-made">Made with ❤️ by Abdullah for Walija</p>
+        </footer>
+    </div>
+
+    <script>
+        // ===== COUNTDOWN TIMER - FIXED =====
+        function updateCountdown() {
+            const weddingDate = new Date(2025, 2, 23, 0, 0, 0); // March 23, 2025
+            const now = new Date();
+            const distance = weddingDate.getTime() - now.getTime();
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Wedding day!
+                document.getElementById('days').textContent = '🎉';
+                document.getElementById('hours').textContent = '💒';
+                document.getElementById('minutes').textContent = '💍';
+                document.getElementById('seconds').textContent = '💕';
+                
+                document.querySelector('.countdown-title').textContent = "🎉 It's Walija's Wedding Day! 🎉";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // ===== PRELOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+                startAnimations();
+            }, 3500);
+        });
+
+        // ===== FLOATING ELEMENTS =====
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const petals = ['🌸', '🌺', '🌷', '💐', '🌹', '✨', '💕', '💫', '🎀', '💍', '🕌', '⭐'];
+
+            setInterval(() => {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.textContent = petals[Math.floor(Math.random() * petals.length)];
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.fontSize = (Math.random() * 22 + 15) + 'px';
+                petal.style.animationDuration = (Math.random() * 7 + 9) + 's';
+                container.appendChild(petal);
+
+                setTimeout(() => petal.remove(), 16000);
+            }, 500);
+
+            setInterval(() => {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.bottom = '0';
+                sparkle.style.animationDuration = (Math.random() * 4 + 5) + 's';
+                container.appendChild(sparkle);
+
+                setTimeout(() => sparkle.remove(), 9000);
+            }, 350);
+        }
+
+        // ===== SCROLL ANIMATIONS =====
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        }
+
+        // ===== WISH CARDS ANIMATION =====
+        function animateWishCards() {
+            const cards = document.querySelectorAll('.wish-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 180);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // ===== SCROLL BUTTON =====
+        window.addEventListener('scroll', () => {
+            const scrollBtn = document.getElementById('scrollBtn');
+            if (window.pageYOffset > 600) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== MUSIC TOGGLE =====
+        let isPlaying = false;
+        function toggleMusic() {
+            const btn = document.getElementById('musicBtn');
+            if (isPlaying) {
+                btn.textContent = '🎵';
+                btn.classList.remove('playing');
+            } else {
+                btn.textContent = '🎶';
+                btn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // ===== SHARE FUNCTION =====
+        function shareWishes() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Walija & Ahmad - Shaadi Mubarak! 💍',
+                    text: 'Special wedding wishes for Walija & Ahmad! 23rd March 2025 💕',
+                    url: window.location.href
+                });
+            } else {
+                alert('Walija & Ahmad Ki Shaadi Mubarak! 💍\n23rd March 2025\nShare this page with family!');
+            }
+        }
+
+        // ===== START ANIMATIONS =====
+        function startAnimations() {
+            createFloatingElements();
+            animateOnScroll();
+            animateWishCards();
+            createWeddingConfetti();
+        }
+
+        // ===== WEDDING CONFETTI =====
+        function createWeddingConfetti() {
+            const colors = ['#d4af37', '#e8b4b8', '#722f37', '#fdf2f0', '#fff', '#f4e4ba', '#3d8b6d'];
+            const shapes = ['❤️', '💕', '✨', '💫', '🌸', '💍', '🌹', '💐', '🎉'];
+
+            for (let i = 0; i < 120; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    const isEmoji = Math.random() > 0.35;
+                    
+                    if (isEmoji) {
+                        confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+                        confetti.style.cssText = `
+                            position: fixed;
+                            font-size: ${Math.random() * 20 + 12}px;
+                            left: ${Math.random() * 100}%;
+                            top: -30px;
+                            pointer-events: none;
+                            z-index: 10000;
+                            animation: confettiFall ${Math.random() * 4 + 3}s linear forwards;
+                        `;
+                    } else {
+                        const size = Math.random() * 14 + 6;
+                        confetti.style.cssText = `
+                            position: fixed;
+                            width: ${size}px;
+                            height: ${size}px;
+                            background: ${colors[Math.floor(Math.random() * colors.length)]};
+                            left: ${Math.random() * 100}%;
+                            top: -30px;
+                            border-radius: ${Math.random() > 0.5 ? '50%' : '4px'};
+                            pointer-events: none;
+                            z-index: 10000;
+                            animation: confettiFall ${Math.random() * 4 + 3}s linear forwards;
+                        `;
+                    }
+                    
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 7000);
+                }, i * 50);
+            }
+        }
+
+        // ===== CONFETTI ANIMATION =====
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes confettiFall {
+                0% {
+                    transform: translateY(0) rotate(0deg) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(720deg) scale(0.4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ===== DOUBLE TAP/CLICK HEARTS =====
+        let lastTap = 0;
+        document.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            if (tapLength < 300 && tapLength > 0) {
+                createHeartBurst(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+            }
+            lastTap = currentTime;
+        });
+
+        document.addEventListener('dblclick', (e) => {
+            createHeartBurst(e.clientX, e.clientY);
+        });
+
+        function createHeartBurst(x, y) {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '💍', '✨', '🌹'];
+            
+            for (let i = 0; i < 18; i++) {
+                const heart = document.createElement('div');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.cssText = `
+                    position: fixed;
+                    font-size: ${Math.random() * 22 + 15}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    pointer-events: none;
+                    z-index: 10001;
+                    animation: heartBurst 1.4s ease-out forwards;
+                    --tx: ${(Math.random() - 0.5) * 300}px;
+                    --ty: ${(Math.random() - 0.5) * 300}px;
+                `;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1400);
+            }
+        }
+
+        const heartStyle = document.createElement('style');
+        heartStyle.textContent = `
+            @keyframes heartBurst {
+                0% {
+                    transform: translate(0, 0) scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(var(--tx), var(--ty)) scale(1.3) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(heartStyle);
+
+        // ===== CONSOLE MESSAGE =====
+        console.log('%c💍 Walija & Ahmad - Shaadi Mubarak! 💍', 'font-size: 28px; color: #722f37; font-weight: bold;');
+        console.log('%c23rd March 2025', 'font-size: 18px; color: #d4af37;');
+        console.log('%cMade with ❤️ by Abdullah', 'font-size: 16px; color: #e8b4b8;');
+    </script>
 </body>
 </html>
